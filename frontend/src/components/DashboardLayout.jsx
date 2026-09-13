@@ -79,7 +79,7 @@ const Sidebar = ({ activeTab, setActiveTab, collapsed, setCollapsed }) => {
     const w = collapsed ? '68px' : '250px';
 
     return (
-        <div style={{
+        <div className="dashboard-sidebar" style={{
             width: w, minWidth: w, height: '100vh',
             background: 'linear-gradient(180deg, #0A0A16 0%, #06060F 100%)',
             borderRight: '1px solid rgba(255,255,255,0.06)',
@@ -136,9 +136,9 @@ const Sidebar = ({ activeTab, setActiveTab, collapsed, setCollapsed }) => {
                                     <span style={{ color: isActive ? 'var(--primary)' : 'rgba(255,255,255,0.45)', flexShrink: 0 }}>{item.icon}</span>
                                     {!collapsed && (
                                         <>
-                                            <span style={{ flex: 1 }}>{item.label}</span>
+                                            <span className="sidebar-label" style={{ flex: 1 }}>{item.label}</span>
                                             {item.badge && (
-                                                <span style={{
+                                                <span className="sidebar-badge" style={{
                                                     fontSize: '10px', fontWeight: '700',
                                                     padding: '1px 7px', borderRadius: '999px',
                                                     background: item.badgeColor ? item.badgeColor + '20' : 'rgba(0,210,255,0.15)',
@@ -167,14 +167,14 @@ const Sidebar = ({ activeTab, setActiveTab, collapsed, setCollapsed }) => {
                             title={collapsed ? item.label : ''}
                             style={{ justifyContent: collapsed ? 'center' : 'flex-start' }}>
                             <span style={{ color: isActive ? 'var(--primary)' : 'rgba(255,255,255,0.45)' }}>{item.icon}</span>
-                            {!collapsed && <span>{item.label}</span>}
+                            {!collapsed && <span className="sidebar-label">{item.label}</span>}
                         </div>
                     );
                 })}
 
                 {/* User avatar */}
                 {!collapsed && (
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 10px', marginTop: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                    <div className="sidebar-user" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 10px', marginTop: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.06)' }}>
                         <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg,#8338EC,#3A86FF)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: '700', flexShrink: 0 }}>D</div>
                         <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontSize: '13px', fontWeight: '600', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Dave Mohan</div>
@@ -215,7 +215,7 @@ const Topbar = ({ activeTab, collapsed, setCollapsed }) => {
 
     return (
         <>
-            <div style={{
+            <div className="dashboard-topbar" style={{
                 height: '64px',
                 background: 'rgba(8,8,18,0.80)',
                 backdropFilter: 'blur(20px)',
@@ -323,7 +323,7 @@ const DashboardLayout = ({ activeTab, setActiveTab, children }) => {
             <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} collapsed={collapsed} setCollapsed={setCollapsed} />
 
             {/* Main area */}
-            <div style={{
+            <div className="dashboard-main" style={{
                 marginLeft: sideW,
                 marginTop: 64,
                 flex: 1, minWidth: 0,
@@ -333,7 +333,7 @@ const DashboardLayout = ({ activeTab, setActiveTab, children }) => {
                 <Topbar activeTab={activeTab} collapsed={collapsed} setCollapsed={setCollapsed} />
 
                 {/* Content */}
-                <div style={{
+                <div className="dashboard-content" style={{
                     padding: '32px 36px',
                     minHeight: 'calc(100vh - 64px)',
                 }}>
