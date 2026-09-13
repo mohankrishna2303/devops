@@ -22,13 +22,14 @@ import DevOpsRolesPage from './pages/DevOpsRolesPage';
 import SecurityPage from './pages/SecurityPage';
 import IntegrationsPage from './pages/IntegrationsPage';
 import SettingsPage from './pages/SettingsPage';
+import LandingPage from './LandingPage';
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         
